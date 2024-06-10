@@ -76,7 +76,7 @@ function TextFieldWithButton(props) {
         placeholder={ placeholder }
         value={ localValue }
         style="width:90%; float: right;" />
-      <button class={ buttonClass } onClick={ handleClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
+      <button class={ buttonClass } onClick={ props.onClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
         +
       </button>
     </div>
@@ -99,7 +99,7 @@ function TextFieldWithButton(props) {
  * @param {Function} props.validate
  */
 export default function TextFieldWithButtonEntry(props) {
-    debugger;
+
   const {
     element,
     id,
