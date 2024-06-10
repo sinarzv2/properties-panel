@@ -28,7 +28,9 @@ function TextFieldWithButton(props) {
     onBlur,
     placeholder,
     value = '',
-    tooltip
+    tooltip,
+    buttonAction,
+    buttonClass
   } = props;
 
   const [ localValue, setLocalValue ] = useState(value || '');
@@ -72,8 +74,13 @@ function TextFieldWithButton(props) {
         onFocus={ onFocus }
         onBlur={ onBlur }
         placeholder={ placeholder }
-        value={ localValue } />
-        <button  class="btn-primary" style="height: 28px; background-color: #45b6ab; width: 28px; color: white;">+</button>
+        value={ localValue } 
+        style="width:90%; float: right;"
+        readonly="readonly"
+          />
+      <button class={ buttonClass } @click={buttonAction} style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
+        +
+      </button>
     </div>
   );
 }
