@@ -33,7 +33,8 @@ function TextFieldWithButton(props) {
     buttonClass
     } = props;
     
-    debugger;
+    console.log(props)
+    console.log(onClickButton)
   const [ localValue, setLocalValue ] = useState(value || '');
 
   const ref = useShowEntryEvent(id);
@@ -126,6 +127,7 @@ export default function TextFieldWithButtonEntry(props) {
     buttonClass
     } = props;
     console.log(props);
+    console.log(props.onClickButton);
   const globalError = useError(id);
   const [ localError, setLocalError ] = useState(null);
 
@@ -152,7 +154,8 @@ export default function TextFieldWithButtonEntry(props) {
   };
 
     const onClickButton = (newValue) => {
-        console.log("onClickButton");
+        console.log(newValue);
+        console.log(props.onClickButton);
     let newValidationError = null;
 
     if (isFunction(validate)) {
