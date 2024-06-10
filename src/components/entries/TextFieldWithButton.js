@@ -31,8 +31,9 @@ function TextFieldWithButton(props) {
     tooltip,
     onClickButton,
     buttonClass
-  } = props;
-
+    } = props;
+    console.log(onClickButton);
+    debugger;
   const [ localValue, setLocalValue ] = useState(value || '');
 
   const ref = useShowEntryEvent(id);
@@ -45,12 +46,13 @@ function TextFieldWithButton(props) {
     handleInputCallback(e.target);
     setLocalValue(e.target.value);};
 
-  const handleClickButtonCallback = useMemo(() => {
+    const handleClickButtonCallback = useMemo((e) => {
+        console.log(e);
     return debounce((target) => onClickButton(target.value.length ? target.value : undefined));
   }, [onClickButton, debounce]);
 
-    const handleClickButton = e => {
-        debugger;
+  const handleClickButton = e => {
+    console.log(e);
     handleClickButtonCallback(e.target);
     setLocalValue(e.target.value);};
 
@@ -107,6 +109,7 @@ function TextFieldWithButton(props) {
  * @param {Function} props.validate
  */
 export default function TextFieldWithButtonEntry(props) {
+    debugger;
   const {
     element,
     id,
@@ -122,8 +125,8 @@ export default function TextFieldWithButtonEntry(props) {
     placeholder,
     tooltip,
     buttonClass
-  } = props;
-
+    } = props;
+    console.log(props);
   const globalError = useError(id);
   const [ localError, setLocalError ] = useState(null);
 
@@ -149,7 +152,8 @@ export default function TextFieldWithButtonEntry(props) {
     setLocalError(newValidationError);
   };
 
-  const onClickButton = (newValue) => {
+    const onClickButton = (newValue) => {
+        console.log("onClickButton");
     let newValidationError = null;
 
     if (isFunction(validate)) {
