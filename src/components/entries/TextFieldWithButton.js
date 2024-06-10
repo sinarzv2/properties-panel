@@ -32,7 +32,7 @@ function TextFieldWithButton(props) {
     onClickButton,
     buttonClass
     } = props;
-    console.log(onClickButton);
+    
     debugger;
   const [ localValue, setLocalValue ] = useState(value || '');
 
@@ -46,15 +46,14 @@ function TextFieldWithButton(props) {
     handleInputCallback(e.target);
     setLocalValue(e.target.value);};
 
-    const handleClickButtonCallback = useMemo((e) => {
-        console.log(e);
-    return debounce((target) => onClickButton(target.value.length ? target.value : undefined));
-  }, [onClickButton, debounce]);
+   
 
   const handleClickButton = e => {
-    console.log(e);
-    handleClickButtonCallback(e.target);
-    setLocalValue(e.target.value);};
+      console.log(onClickButton);
+      console.log(e);
+      onClickButton();
+      setLocalValue(e.target.value);
+  };
 
   useEffect(() => {
     if (value === localValue) {
