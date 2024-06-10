@@ -78,7 +78,7 @@ function TextFieldWithButton(props) {
         style="width:90%; float: right;"
         readonly="readonly"
           />
-      <button class={ buttonClass } onclick={ buttonAction } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
+      <button class={ buttonClass } Test={ buttonAction } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
         +
       </button>
     </div>
