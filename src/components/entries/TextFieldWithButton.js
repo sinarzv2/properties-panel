@@ -49,7 +49,8 @@ function TextFieldWithButton(props) {
     return debounce((target) => onClickButton(target.value.length ? target.value : undefined));
   }, [onClickButton, debounce]);
 
-  const handleClickButton = e => {
+    const handleClickButton = e => {
+        debugger;
     handleClickButtonCallback(e.target);
     setLocalValue(e.target.value);};
 
