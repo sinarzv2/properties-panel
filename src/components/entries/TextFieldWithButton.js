@@ -45,12 +45,12 @@ function TextFieldWithButton(props) {
     handleInputCallback(e.target);
     setLocalValue(e.target.value);};
 
-  const handleOnClickButtonCallback = useMemo(() => {
+  const handleClickButtonCallback = useMemo(() => {
     return debounce((target) => onClickButton(target.value.length ? target.value : undefined));
   }, [onClickButton, debounce]);
 
-  const handleOnClickButton = e => {
-    handleOnClickButtonCallback(e.target);
+  const handleClickButton = e => {
+    handleClickButtonCallback(e.target);
     setLocalValue(e.target.value);};
 
   useEffect(() => {
@@ -82,9 +82,8 @@ function TextFieldWithButton(props) {
         onBlur={ onBlur }
         placeholder={ placeholder }
         value={ localValue }
-        style="width:90%; float: right;"
-        readonly="readonly" />
-      <button class={ buttonClass } onClick={ handleOnClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
+        style="width:90%; float: right;" />
+      <button class={ buttonClass } onClick={ handleClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
         +
       </button>
     </div>
