@@ -114,7 +114,9 @@ export default function TextFieldWithButtonEntry(props) {
     onFocus,
     onBlur,
     placeholder,
-    tooltip
+    tooltip,
+    buttonAction,
+    buttonClass
   } = props;
 
   const globalError = useError(id);
@@ -164,7 +166,10 @@ export default function TextFieldWithButtonEntry(props) {
         placeholder={ placeholder }
         value={ value }
         tooltip={ tooltip }
-        element={ element } />
+        element={ element }
+        buttonAction={ buttonAction }
+        buttonClass={ buttonClass }
+        />
       { error && <div class="bio-properties-panel-error">{ error }</div> }
       <Description forId={ id } element={ element } value={ description } />
     </div>
