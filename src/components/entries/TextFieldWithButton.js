@@ -73,7 +73,7 @@ function TextFieldWithButton(props) {
         onBlur={ onBlur }
         placeholder={ placeholder }
         value={ localValue } />
-        <button onclick="' + buttonAction + '" class="btn-primary" style="height: 28px; background-color: #45b6ab; width: 28px; color: white;">+</button>
+        <button  class="btn-primary" style="height: 28px; background-color: #45b6ab; width: 28px; color: white;">+</button>
     </div>
   );
 }
