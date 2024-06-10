@@ -29,7 +29,7 @@ function TextFieldWithButton(props) {
     placeholder,
     value = '',
     tooltip,
-    buttonAction,
+    onClickButton,
     buttonClass
   } = props;
 
@@ -39,12 +39,19 @@ function TextFieldWithButton(props) {
 
   const handleInputCallback = useMemo(() => {
     return debounce((target) => onInput(target.value.length ? target.value : undefined));
-  }, [ onInput, debounce ]);
+  }, [onInput, debounce]);
 
   const handleInput = e => {
     handleInputCallback(e.target);
-    setLocalValue(e.target.value);
-  };
+    setLocalValue(e.target.value);};
+
+  const handleOnClickButtonCallback = useMemo(() => {
+    return debounce((target) => onClickButton(target.value.length ? target.value : undefined));
+  }, [onClickButton, debounce]);
+
+  const handleOnClickButton = e => {
+    handleOnClickButtonCallback(e.target);
+    setLocalValue(e.target.value);};
 
   useEffect(() => {
     if (value === localValue) {
@@ -74,11 +81,10 @@ function TextFieldWithButton(props) {
         onFocus={ onFocus }
         onBlur={ onBlur }
         placeholder={ placeholder }
-        value={ localValue } 
+        value={ localValue }
         style="width:90%; float: right;"
-        readonly="readonly"
-          />
-      <button class={ buttonClass } onclick="test22" style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
+        readonly="readonly" />
+      <button class={ buttonClass } onclick={ handleOnClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
         +
       </button>
     </div>
@@ -115,7 +121,6 @@ export default function TextFieldWithButtonEntry(props) {
     onBlur,
     placeholder,
     tooltip,
-    buttonAction,
     buttonClass
   } = props;
 
@@ -133,6 +138,18 @@ export default function TextFieldWithButtonEntry(props) {
   }, [ value, validate ]);
 
   const onInput = (newValue) => {
+    let newValidationError = null;
+
+    if (isFunction(validate)) {
+      newValidationError = validate(newValue) || null;
+    }
+
+    setValue(newValue, newValidationError);
+
+    setLocalError(newValidationError);
+  };
+
+  const OnClickButton = (newValue) => {
     let newValidationError = null;
 
     if (isFunction(validate)) {
@@ -167,9 +184,8 @@ export default function TextFieldWithButtonEntry(props) {
         value={ value }
         tooltip={ tooltip }
         element={ element }
-        buttonAction={ buttonAction }
-        buttonClass={ buttonClass }
-        />
+        OnClickButton={ OnClickButton }
+        buttonClass={ buttonClass } />
       { error && <div class="bio-properties-panel-error">{ error }</div> }
       <Description forId={ id } element={ element } value={ description } />
     </div>
