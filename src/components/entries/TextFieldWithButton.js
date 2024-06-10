@@ -46,7 +46,7 @@ function TextFieldWithButton(props) {
     setLocalValue(e.target.value);};
 
   const handleOnClickButtonCallback = useMemo(() => {
-    return debounce((target) => onClick(target.value.length ? target.value : undefined));
+    return debounce((target) => onClickButton(target.value.length ? target.value : undefined));
   }, [onClickButton, debounce]);
 
   const handleOnClickButton = e => {
@@ -149,7 +149,7 @@ export default function TextFieldWithButtonEntry(props) {
     setLocalError(newValidationError);
   };
 
-  const OnClickButton = (newValue) => {
+  const onClickButton = (newValue) => {
     let newValidationError = null;
 
     if (isFunction(validate)) {
@@ -184,7 +184,7 @@ export default function TextFieldWithButtonEntry(props) {
         value={ value }
         tooltip={ tooltip }
         element={ element }
-        OnClickButton={ OnClickButton }
+        onClickButton={ onClickButton }
         buttonClass={ buttonClass } />
       { error && <div class="bio-properties-panel-error">{ error }</div> }
       <Description forId={ id } element={ element } value={ description } />
