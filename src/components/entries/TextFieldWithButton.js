@@ -29,9 +29,9 @@ function TextFieldWithButton(props) {
     placeholder,
     value = '',
     tooltip,
-    buttonClass
-    } = props;
-    
+    buttonClass,
+    onClickButton } = props;
+
 
   const [ localValue, setLocalValue ] = useState(value || '');
 
@@ -76,7 +76,7 @@ function TextFieldWithButton(props) {
         placeholder={ placeholder }
         value={ localValue }
         style="width:90%; float: right;" />
-      <button class={ buttonClass } onClick={ props.onClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
+      <button class={ buttonClass } onClick={ onClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
         +
       </button>
     </div>
@@ -115,9 +115,7 @@ export default function TextFieldWithButtonEntry(props) {
     placeholder,
     tooltip,
     buttonClass,
-    onClickButton
-    } = props;
-    console.log(onClickButton);
+    onClickButton } = props;
   const globalError = useError(id);
   const [ localError, setLocalError ] = useState(null);
 
@@ -142,8 +140,6 @@ export default function TextFieldWithButtonEntry(props) {
 
     setLocalError(newValidationError);
   };
-
-   
 
 
   const error = globalError || localError;
