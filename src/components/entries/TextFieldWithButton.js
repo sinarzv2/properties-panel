@@ -46,7 +46,7 @@ function TextFieldWithButton(props) {
     setLocalValue(e.target.value);};
 
   const handleOnClickButtonCallback = useMemo(() => {
-    return debounce((target) => onClickButton(target.value.length ? target.value : undefined));
+    return debounce((target) => onClick(target.value.length ? target.value : undefined));
   }, [onClickButton, debounce]);
 
   const handleOnClickButton = e => {
@@ -84,7 +84,7 @@ function TextFieldWithButton(props) {
         value={ localValue }
         style="width:90%; float: right;"
         readonly="readonly" />
-      <button class={ buttonClass } onclick={ handleOnClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
+      <button class={ buttonClass } onClick={ handleOnClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
         +
       </button>
     </div>
