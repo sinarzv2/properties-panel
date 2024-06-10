@@ -29,12 +29,10 @@ function TextFieldWithButton(props) {
     placeholder,
     value = '',
     tooltip,
-    onClickButton,
     buttonClass
     } = props;
     
-    console.log(props)
-    console.log(onClickButton)
+
   const [ localValue, setLocalValue ] = useState(value || '');
 
   const ref = useShowEntryEvent(id);
@@ -47,14 +45,6 @@ function TextFieldWithButton(props) {
     handleInputCallback(e.target);
     setLocalValue(e.target.value);};
 
-   
-
-  const handleClickButton = e => {
-      console.log(onClickButton);
-      console.log(e);
-      onClickButton();
-      setLocalValue(e.target.value);
-  };
 
   useEffect(() => {
     if (value === localValue) {
@@ -124,10 +114,10 @@ export default function TextFieldWithButtonEntry(props) {
     onBlur,
     placeholder,
     tooltip,
-    buttonClass
+    buttonClass,
+    onClickButton
     } = props;
-    console.log(props);
-    console.log(props.onClickButton);
+    console.log(onClickButton);
   const globalError = useError(id);
   const [ localError, setLocalError ] = useState(null);
 
@@ -153,19 +143,7 @@ export default function TextFieldWithButtonEntry(props) {
     setLocalError(newValidationError);
   };
 
-    const onClickButton = (newValue) => {
-        console.log(newValue);
-        console.log(props.onClickButton);
-    let newValidationError = null;
-
-    if (isFunction(validate)) {
-      newValidationError = validate(newValue) || null;
-    }
-
-    setValue(newValue, newValidationError);
-
-    setLocalError(newValidationError);
-  };
+   
 
 
   const error = globalError || localError;
