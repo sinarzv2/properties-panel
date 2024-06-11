@@ -76,7 +76,7 @@ function TextFieldWithButton(props) {
         placeholder={ placeholder }
         value={ localValue }
         style="width:90%; float: right;" />
-      <button class={ buttonClass } onclick="openForms" style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
+      <button class={ buttonClass } onClick={ onClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
         +
       </button>
     </div>
