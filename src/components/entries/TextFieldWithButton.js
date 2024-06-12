@@ -75,8 +75,9 @@ function TextFieldWithButton(props) {
         onBlur={ onBlur }
         placeholder={ placeholder }
         value={ localValue }
-        style="width:90%; float: right;" />
-      <button class={ buttonClass } onClick={ onClickButton } style="height: 28px; background-color: #45b6ab; width: 10%; color: white;">
+        style="width:90%; float: right;"
+        readonly="readonly" />
+      <button class={ buttonClass } onClick={ onClickButton } style="height: 28px; background-color: #7239ea; width: 10%; color: white;">
         +
       </button>
     </div>
