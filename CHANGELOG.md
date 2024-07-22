@@ -6,6 +6,34 @@ All notable changes to [`@bpmn-io/properties-panel`](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 3.22.3
+
+* `FIX`: fix text area autoresize behavior ([#374](https://github.com/bpmn-io/properties-panel/pull/374))
+
+## 3.22.2
+
+* `CHORE`: revert autoresize of text area ([#372](https://github.com/bpmn-io/properties-panel/pull/372))
+
+## 3.22.1
+
+* `FIX`: text area will auto resize on every render ([#372](https://github.com/bpmn-io/properties-panel/pull/372))
+
+## 3.22.0
+
+* `FIX`: do not render `ListGroup` with outdated components ([#369](https://github.com/bpmn-io/properties-panel/pull/369))
+* `DEPS`: update to `@bpmn-io/feel-editor@1.6.0`
+* `CHORE`: rework `ListGroup` auto open logic ([#369](https://github.com/bpmn-io/properties-panel/pull/369))
+
+## 3.21.0
+
+* `FEAT`: add translation option to `List` and `Collapsible` ([#362](https://github.com/bpmn-io/properties-panel/pull/362))
+
+## 3.20.1
+
+* `FIX`: move popup close button to header ([#364](https://github.com/bpmn-io/properties-panel/issues/364))
+* `FIX`: correct popout icon for template editor ([#342](https://github.com/bpmn-io/properties-panel/issues/342))
+* `FIX`: wrap lines in FEEL template editor ([#365](https://github.com/bpmn-io/properties-panel/issues/365))
+
 ## 3.20.0
 
 * `FEAT`: support `placeholder` property in text and FEEL text entries ([#363](https://github.com/bpmn-io/properties-panel/pull/363))
